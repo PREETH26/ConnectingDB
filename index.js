@@ -1,10 +1,14 @@
 const express = require('express');
 const { resolve } = require('path');
+const db = require("./db");
+
 
 const app = express();
 const port = 3010;
 
 app.use(express.static('static'));
+
+db()
 
 app.get('/', (req, res) => {
   res.sendFile(resolve(__dirname, 'pages/index.html'));
